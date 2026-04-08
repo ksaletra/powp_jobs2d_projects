@@ -31,8 +31,10 @@ public class CompoundCommandFactory {
 		commands.add(new OperateToCommand(70, 0));
 		commands.add(new OperateToCommand(70, 50));
 		commands.add(new OperateToCommand(20, 50));
+		
 		return new CompoundCommand(commands, "TopSecretCommand");
 	}
+	
     /**
      * Create KiteCommand with all its predefined commands using SimpleComplexCommandBuilder.
      *
