@@ -10,8 +10,7 @@ import edu.kis.powp.jobs2d.features.CommandsFeature;
 import edu.kis.powp.jobs2d.features.RecordingFeature;
 
 public class SelectLoadRecordedMacroOptionListener implements ActionListener {
-
-
+    
     public SelectLoadRecordedMacroOptionListener() {
     }
 
