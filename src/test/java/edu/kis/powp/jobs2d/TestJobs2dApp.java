@@ -10,6 +10,7 @@ import edu.kis.legacy.drawer.shape.LineFactory;
 import edu.kis.powp.appbase.Application;
 import edu.kis.powp.jobs2d.command.gui.CommandManagerWindow;
 import edu.kis.powp.jobs2d.command.gui.CommandManagerWindowCommandChangeObserver;
+import edu.kis.powp.jobs2d.drivers.RealTimeDriver;
 import edu.kis.powp.jobs2d.drivers.RecordingDriver;
 import edu.kis.powp.jobs2d.drivers.adapter.LineDriverAdapter;
 import edu.kis.powp.jobs2d.drivers.logger.TrackingLoggerDriver;
@@ -111,6 +112,16 @@ public class TestJobs2dApp {
 
         Job2dDriver scaledAndRotatedDriver = new TransformingDriver(scaledDriver, rotate, "Transform: Scaled 2x & Rotated 45");
         DriverFeature.addDriver(scaledAndRotatedDriver.toString(), scaledAndRotatedDriver);
+
+        driver = new LineDriverAdapter(drawerController, LineFactory.getBasicLine(), "basic");
+        Job2dDriver animatedDriver = new RealTimeDriver(driver, 10, 10, "Real-Time Driver 1x speed");
+        DriverFeature.addDriver(animatedDriver.toString(), animatedDriver);
+
+        animatedDriver = new RealTimeDriver(driver, 5, 5, "Real-Time Driver 2x speed");
+        DriverFeature.addDriver(animatedDriver.toString(), animatedDriver);
+
+        animatedDriver = new RealTimeDriver(driver, 1, 1, "Real-Time Driver 10x speed");
+        DriverFeature.addDriver(animatedDriver.toString(), animatedDriver);
     }
 
     private static void setupWindows(Application application) {
