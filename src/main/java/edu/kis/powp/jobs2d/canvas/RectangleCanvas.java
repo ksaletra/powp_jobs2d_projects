@@ -33,10 +33,13 @@ public class RectangleCanvas implements ICanvas {
 
     @Override
     public boolean contains(int x, int y) {
-        return x >= margin
-                && x <= width - margin
-                && y >= margin
-                && y <= height - margin;
+        int halfWidth = width / 2;
+        int halfHeight = height / 2;
+
+        return x >= -halfWidth + margin
+                && x <= halfWidth - margin
+                && y >= -halfHeight + margin
+                && y <= halfHeight - margin;
     }
 
     @Override
