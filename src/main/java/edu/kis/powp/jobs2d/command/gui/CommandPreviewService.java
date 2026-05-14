@@ -1,8 +1,10 @@
 package edu.kis.powp.jobs2d.command.gui;
 
 import edu.kis.legacy.drawer.panel.DrawPanelController;
+import edu.kis.powp.jobs2d.canvas.ICanvas;
 import edu.kis.powp.jobs2d.command.DriverCommand;
 import edu.kis.powp.jobs2d.drivers.visitor.VisitableDriver;
+import edu.kis.powp.jobs2d.features.CanvasFeature;
 
 public class CommandPreviewService implements ICommandPreview {
 
@@ -17,6 +19,11 @@ public class CommandPreviewService implements ICommandPreview {
     @Override
     public void updatePreview(DriverCommand command) {
         drawController.clearPanel();
+
+        ICanvas canvas = CanvasFeature.getCanvas();
+        if (canvas != null) {
+            canvas.toCommand().execute(driver);
+        }
 
         if (command != null) {
             command.execute(driver);
